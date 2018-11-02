@@ -45,7 +45,7 @@ public class DemoRestdocApplicationTests {
                                 fieldWithPath("[].firstName").description("first name of person"),
                                 fieldWithPath("[].lastName").description("last name of person")
                         )
-                        //, SpringCloudContractRestDocs.dslContract()
+                        , SpringCloudContractRestDocs.dslContract()
                 ))
         ;
     }
