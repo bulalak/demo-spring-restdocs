@@ -31,7 +31,7 @@ public class DemoRestdocApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    public void contextLoads() throws Exception {
+    public void getPersons() throws Exception {
         this.mockMvc.perform(get("/persons")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -47,6 +47,17 @@ public class DemoRestdocApplicationTests {
                         )
                         , SpringCloudContractRestDocs.dslContract()
                 ))
+        ;
+    }
+
+    @Test
+    public void getPersons2() throws Exception {
+        this.mockMvc.perform(get("/persons")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$[*].firstName").isNotEmpty())
+                .andExpect(jsonPath("$[*].lastName").isNotEmpty())
         ;
     }
 
